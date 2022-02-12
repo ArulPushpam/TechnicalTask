@@ -1,0 +1,26 @@
+﻿@using System.Linq;
+@model Xcentium_Techincal_Code.Models.ResultViewModel
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <div>
+        <h3>Hey, Here you can find all the Website Words</h3>
+        <table id="t01">
+            <thead>
+            <th> Top 10 Occurring Words </th>
+            <th>Count</th>
+            </thead>
+            @foreach (var item in Model.wordOccurances)
+            {
+
+                <tr>
+                    <td>
+                        @item.Word
+                    </td>
+                    <td>
+                        @item.Count
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>

@@ -1,0 +1,33 @@
+﻿@using System.Linq;
+@model Xcentium_Techincal_Code.Models.ResultViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Hey, This is my Caurosel Section</h3>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        @{int i = 0;}
+        @foreach (var items in Model.ImageList)
+        {
+            var carouselUrl = "/" + Model.ImageFolder + "/" + items;
+            i++;
+            var active = i == 1 ? "active" : "";
+            <div class="carousel-item @active">
+                <img class="d-block w-100" src="@carouselUrl" alt="carouselUrl slides" style=" width: 640px; height: 360px ">
+            </div>
+        }
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<hr class="striped-border"/>
+
+@Html.RenderPartialAsync("WordCountPartialView",Model);
